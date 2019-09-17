@@ -30,6 +30,26 @@
       "sourceType": "org.springframework.boot.autoconfigure.mongo.MongoProperties"
     },
     {
+      "name": "spring.data.mongodb.primary.authentication-database",
+      "type": "java.lang.String",
+      "sourceType": "org.springframework.boot.autoconfigure.mongo.MongoProperties"
+    },
+    {
+      "name": "spring.data.mongodb.primary.authentication-database",
+      "type": "java.lang.String",
+      "sourceType": "org.springframework.boot.autoconfigure.mongo.MongoProperties"
+    },
+    {
+      "name": "spring.data.mongodb.primary.database",
+      "type": "java.lang.String",
+      "sourceType": "org.springframework.boot.autoconfigure.mongo.MongoProperties"
+    },
+    {
+      "name": "spring.data.mongodb.primary.database",
+      "type": "java.lang.String",
+      "sourceType": "org.springframework.boot.autoconfigure.mongo.MongoProperties"
+    },
+    {
       "name": "spring.data.mongodb.primary.database",
       "type": "java.lang.String",
       "sourceType": "org.springframework.boot.autoconfigure.mongo.MongoProperties"
@@ -60,6 +80,21 @@
       "sourceType": "org.springframework.boot.autoconfigure.mongo.MongoProperties"
     },
     {
+      "name": "spring.data.mongodb.primary.field-naming-strategy",
+      "type": "java.lang.Class<?>",
+      "sourceType": "org.springframework.boot.autoconfigure.mongo.MongoProperties"
+    },
+    {
+      "name": "spring.data.mongodb.primary.field-naming-strategy",
+      "type": "java.lang.Class<?>",
+      "sourceType": "org.springframework.boot.autoconfigure.mongo.MongoProperties"
+    },
+    {
+      "name": "spring.data.mongodb.primary.grid-fs-database",
+      "type": "java.lang.String",
+      "sourceType": "org.springframework.boot.autoconfigure.mongo.MongoProperties"
+    },
+    {
       "name": "spring.data.mongodb.primary.grid-fs-database",
       "type": "java.lang.String",
       "sourceType": "org.springframework.boot.autoconfigure.mongo.MongoProperties"
@@ -71,6 +106,21 @@
     },
     {
       "name": "spring.data.mongodb.primary.grid-fs-database",
+      "type": "java.lang.String",
+      "sourceType": "org.springframework.boot.autoconfigure.mongo.MongoProperties"
+    },
+    {
+      "name": "spring.data.mongodb.primary.grid-fs-database",
+      "type": "java.lang.String",
+      "sourceType": "org.springframework.boot.autoconfigure.mongo.MongoProperties"
+    },
+    {
+      "name": "spring.data.mongodb.primary.host",
+      "type": "java.lang.String",
+      "sourceType": "org.springframework.boot.autoconfigure.mongo.MongoProperties"
+    },
+    {
+      "name": "spring.data.mongodb.primary.host",
       "type": "java.lang.String",
       "sourceType": "org.springframework.boot.autoconfigure.mongo.MongoProperties"
     },
@@ -105,6 +155,26 @@
       "sourceType": "org.springframework.boot.autoconfigure.mongo.MongoProperties"
     },
     {
+      "name": "spring.data.mongodb.primary.password",
+      "type": "java.lang.Character[]",
+      "sourceType": "org.springframework.boot.autoconfigure.mongo.MongoProperties"
+    },
+    {
+      "name": "spring.data.mongodb.primary.password",
+      "type": "java.lang.Character[]",
+      "sourceType": "org.springframework.boot.autoconfigure.mongo.MongoProperties"
+    },
+    {
+      "name": "spring.data.mongodb.primary.port",
+      "type": "java.lang.Integer",
+      "sourceType": "org.springframework.boot.autoconfigure.mongo.MongoProperties"
+    },
+    {
+      "name": "spring.data.mongodb.primary.port",
+      "type": "java.lang.Integer",
+      "sourceType": "org.springframework.boot.autoconfigure.mongo.MongoProperties"
+    },
+    {
       "name": "spring.data.mongodb.primary.port",
       "type": "java.lang.Integer",
       "sourceType": "org.springframework.boot.autoconfigure.mongo.MongoProperties"
@@ -131,6 +201,26 @@
     },
     {
       "name": "spring.data.mongodb.primary.uri",
+      "type": "java.lang.String",
+      "sourceType": "org.springframework.boot.autoconfigure.mongo.MongoProperties"
+    },
+    {
+      "name": "spring.data.mongodb.primary.uri",
+      "type": "java.lang.String",
+      "sourceType": "org.springframework.boot.autoconfigure.mongo.MongoProperties"
+    },
+    {
+      "name": "spring.data.mongodb.primary.uri",
+      "type": "java.lang.String",
+      "sourceType": "org.springframework.boot.autoconfigure.mongo.MongoProperties"
+    },
+    {
+      "name": "spring.data.mongodb.primary.username",
+      "type": "java.lang.String",
+      "sourceType": "org.springframework.boot.autoconfigure.mongo.MongoProperties"
+    },
+    {
+      "name": "spring.data.mongodb.primary.username",
       "type": "java.lang.String",
       "sourceType": "org.springframework.boot.autoconfigure.mongo.MongoProperties"
     },
@@ -165,6 +255,26 @@
       "sourceType": "org.springframework.boot.autoconfigure.mongo.MongoProperties"
     },
     {
+      "name": "spring.data.mongodb.secondary.authentication-database",
+      "type": "java.lang.String",
+      "sourceType": "org.springframework.boot.autoconfigure.mongo.MongoProperties"
+    },
+    {
+      "name": "spring.data.mongodb.secondary.authentication-database",
+      "type": "java.lang.String",
+      "sourceType": "org.springframework.boot.autoconfigure.mongo.MongoProperties"
+    },
+    {
+      "name": "spring.data.mongodb.secondary.database",
+      "type": "java.lang.String",
+      "sourceType": "org.springframework.boot.autoconfigure.mongo.MongoProperties"
+    },
+    {
+      "name": "spring.data.mongodb.secondary.database",
+      "type": "java.lang.String",
+      "sourceType": "org.springframework.boot.autoconfigure.mongo.MongoProperties"
+    },
+    {
       "name": "spring.data.mongodb.secondary.database",
       "type": "java.lang.String",
       "sourceType": "org.springframework.boot.autoconfigure.mongo.MongoProperties"
@@ -195,6 +305,21 @@
       "sourceType": "org.springframework.boot.autoconfigure.mongo.MongoProperties"
     },
     {
+      "name": "spring.data.mongodb.secondary.field-naming-strategy",
+      "type": "java.lang.Class<?>",
+      "sourceType": "org.springframework.boot.autoconfigure.mongo.MongoProperties"
+    },
+    {
+      "name": "spring.data.mongodb.secondary.field-naming-strategy",
+      "type": "java.lang.Class<?>",
+      "sourceType": "org.springframework.boot.autoconfigure.mongo.MongoProperties"
+    },
+    {
+      "name": "spring.data.mongodb.secondary.grid-fs-database",
+      "type": "java.lang.String",
+      "sourceType": "org.springframework.boot.autoconfigure.mongo.MongoProperties"
+    },
+    {
       "name": "spring.data.mongodb.secondary.grid-fs-database",
       "type": "java.lang.String",
       "sourceType": "org.springframework.boot.autoconfigure.mongo.MongoProperties"
@@ -206,6 +331,21 @@
     },
     {
       "name": "spring.data.mongodb.secondary.grid-fs-database",
+      "type": "java.lang.String",
+      "sourceType": "org.springframework.boot.autoconfigure.mongo.MongoProperties"
+    },
+    {
+      "name": "spring.data.mongodb.secondary.grid-fs-database",
+      "type": "java.lang.String",
+      "sourceType": "org.springframework.boot.autoconfigure.mongo.MongoProperties"
+    },
+    {
+      "name": "spring.data.mongodb.secondary.host",
+      "type": "java.lang.String",
+      "sourceType": "org.springframework.boot.autoconfigure.mongo.MongoProperties"
+    },
+    {
+      "name": "spring.data.mongodb.secondary.host",
       "type": "java.lang.String",
       "sourceType": "org.springframework.boot.autoconfigure.mongo.MongoProperties"
     },
@@ -240,6 +380,26 @@
       "sourceType": "org.springframework.boot.autoconfigure.mongo.MongoProperties"
     },
     {
+      "name": "spring.data.mongodb.secondary.password",
+      "type": "java.lang.Character[]",
+      "sourceType": "org.springframework.boot.autoconfigure.mongo.MongoProperties"
+    },
+    {
+      "name": "spring.data.mongodb.secondary.password",
+      "type": "java.lang.Character[]",
+      "sourceType": "org.springframework.boot.autoconfigure.mongo.MongoProperties"
+    },
+    {
+      "name": "spring.data.mongodb.secondary.port",
+      "type": "java.lang.Integer",
+      "sourceType": "org.springframework.boot.autoconfigure.mongo.MongoProperties"
+    },
+    {
+      "name": "spring.data.mongodb.secondary.port",
+      "type": "java.lang.Integer",
+      "sourceType": "org.springframework.boot.autoconfigure.mongo.MongoProperties"
+    },
+    {
       "name": "spring.data.mongodb.secondary.port",
       "type": "java.lang.Integer",
       "sourceType": "org.springframework.boot.autoconfigure.mongo.MongoProperties"
@@ -266,6 +426,26 @@
     },
     {
       "name": "spring.data.mongodb.secondary.uri",
+      "type": "java.lang.String",
+      "sourceType": "org.springframework.boot.autoconfigure.mongo.MongoProperties"
+    },
+    {
+      "name": "spring.data.mongodb.secondary.uri",
+      "type": "java.lang.String",
+      "sourceType": "org.springframework.boot.autoconfigure.mongo.MongoProperties"
+    },
+    {
+      "name": "spring.data.mongodb.secondary.uri",
+      "type": "java.lang.String",
+      "sourceType": "org.springframework.boot.autoconfigure.mongo.MongoProperties"
+    },
+    {
+      "name": "spring.data.mongodb.secondary.username",
+      "type": "java.lang.String",
+      "sourceType": "org.springframework.boot.autoconfigure.mongo.MongoProperties"
+    },
+    {
+      "name": "spring.data.mongodb.secondary.username",
       "type": "java.lang.String",
       "sourceType": "org.springframework.boot.autoconfigure.mongo.MongoProperties"
     },

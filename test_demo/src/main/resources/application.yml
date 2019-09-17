@@ -7,8 +7,21 @@ eureka:
 spring:
   application:
     name: test_demo
+  main:
+    allow-bean-definition-overriding: true
   data:
     mongodb:
+      url: localhost
+      port: 27017
+#      username:
+#      password:
+      dbname: axon
+      events:
+        collection:
+          name: events
+        snapshot:
+          collection:
+            name: snapshots
       primary:
         uri: mongodb://localhost:27017/testdemo1
       secondary:

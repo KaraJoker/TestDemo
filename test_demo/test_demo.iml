@@ -118,6 +118,8 @@
     <orderEntry type="library" name="Maven: com.thoughtworks.xstream:xstream:1.4.9" level="project" />
     <orderEntry type="library" name="Maven: xpp3:xpp3:1.1.4c" level="project" />
     <orderEntry type="library" name="Maven: org.axonframework:axon-spring:3.0.4" level="project" />
+    <orderEntry type="library" name="Maven: org.axonframework:axon-mongo:3.0.4" level="project" />
+    <orderEntry type="library" name="Maven: org.mongodb:mongo-java-driver:3.8.2" level="project" />
     <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.7.23" level="project" />
     <orderEntry type="library" name="Maven: ch.qos.logback:logback-classic:1.2.1" level="project" />
     <orderEntry type="library" name="Maven: ch.qos.logback:logback-core:1.2.1" level="project" />

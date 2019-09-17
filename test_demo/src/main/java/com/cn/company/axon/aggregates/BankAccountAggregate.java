@@ -3,6 +3,7 @@ package com.cn.company.axon.aggregates;
 import com.cn.company.axon.model.AccountId;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import org.axonframework.commandhandling.model.AggregateIdentifier;
 import org.axonframework.spring.stereotype.Aggregate;
 import org.slf4j.Logger;
@@ -14,6 +15,7 @@ import static org.slf4j.LoggerFactory.getLogger;
  */
 @Getter
 @Aggregate
+@NoArgsConstructor
 @AllArgsConstructor
 public class BankAccountAggregate {
 

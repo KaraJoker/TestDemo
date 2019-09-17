@@ -5,6 +5,7 @@ import com.cn.company.axon.query.OrderCreatedEvent;
 import com.cn.company.domain.OrderProduct;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import org.axonframework.commandhandling.CommandHandler;
 import org.axonframework.commandhandling.model.AggregateIdentifier;
 import org.axonframework.commandhandling.model.AggregateMember;
@@ -18,6 +19,7 @@ import static org.axonframework.commandhandling.model.AggregateLifecycle.apply;
  */
 @Getter
 @Aggregate
+@NoArgsConstructor
 @AllArgsConstructor
 public class OrderAggregate {
 
