@@ -1,16 +1,12 @@
 package com.cn.company.axon.command;
 
 import com.cn.company.axon.model.OrderId;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
 
 import java.util.Map;
 
 /**
  * Created by Edison Xu on 2017/3/7.
  */
-@Getter
-@AllArgsConstructor
 public class CreateOrderCommand {
 
     private OrderId orderId;
@@ -21,5 +17,17 @@ public class CreateOrderCommand {
         this.orderId = new OrderId();
         this.username = username;
         this.products = products;
+    }
+
+    public OrderId getOrderId() {
+        return orderId;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public Map<String, Integer> getProducts() {
+        return products;
     }
 }

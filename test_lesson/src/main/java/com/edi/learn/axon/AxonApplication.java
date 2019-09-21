@@ -1,0 +1,16 @@
+package com.edi.learn.axon;
+
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+/**
+ * Created by Edison Xu on 2017/3/7.
+ */
+@SpringBootApplication
+public class AxonApplication {
+
+    public static void main(String args[]){
+        SpringApplication.run(AxonApplication.class, args);
+    }
+}

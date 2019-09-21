@@ -10,10 +10,22 @@ import com.cn.company.plan.repository.BankAccountEntryRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.axonframework.commandhandling.CommandHandler;
 import org.axonframework.commandhandling.model.Repository;
+import org.axonframework.config.AggregateConfiguration;
+import org.axonframework.config.Configuration;
+import org.axonframework.config.Configurer;
+import org.axonframework.config.ModuleConfiguration;
 import org.axonframework.eventhandling.EventHandler;
+import org.axonframework.eventsourcing.eventstore.EventStorageEngine;
+import org.axonframework.messaging.Message;
+import org.axonframework.messaging.correlation.CorrelationDataProvider;
+import org.axonframework.monitoring.MessageMonitor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import java.math.BigDecimal;
+import java.util.List;
+import java.util.function.BiFunction;
+import java.util.function.Function;
+
 import static org.axonframework.commandhandling.model.AggregateLifecycle.apply;
 
 @Slf4j

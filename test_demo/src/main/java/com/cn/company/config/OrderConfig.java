@@ -5,6 +5,7 @@ import org.axonframework.commandhandling.model.Repository;
 import org.axonframework.eventsourcing.AggregateFactory;
 import org.axonframework.eventsourcing.EventSourcingRepository;
 import org.axonframework.eventsourcing.eventstore.EventStore;
+import org.axonframework.spring.config.EnableAxon;
 import org.axonframework.spring.eventsourcing.SpringPrototypeAggregateFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -14,6 +15,7 @@ import org.springframework.context.annotation.Scope;
 /**
  * Created by Edison Xu on 2017/3/14.
  */
+@EnableAxon
 @Configuration
 public class OrderConfig {
 

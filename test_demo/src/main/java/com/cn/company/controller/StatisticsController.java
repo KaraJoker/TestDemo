@@ -24,7 +24,7 @@ public class StatisticsController {
     }
 
     @PostMapping("/save")
-    public PT save(@RequestBody PT pt){
-        return ptService.save(pt);
+    public void save(@RequestBody PT pt){
+        ptService.save(pt);
     }
 }

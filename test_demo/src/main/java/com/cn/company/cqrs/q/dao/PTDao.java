@@ -11,5 +11,5 @@ public interface PTDao {
 
     List<Map> statistics();
 
-    com.cn.company.cqrs.q.bean.PT save(PT pt);
+    void save(PT pt);
 }

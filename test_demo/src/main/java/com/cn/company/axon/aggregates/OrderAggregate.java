@@ -3,24 +3,19 @@ package com.cn.company.axon.aggregates;
 import com.cn.company.axon.model.OrderId;
 import com.cn.company.axon.query.OrderCreatedEvent;
 import com.cn.company.domain.OrderProduct;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import org.axonframework.commandhandling.CommandHandler;
 import org.axonframework.commandhandling.model.AggregateIdentifier;
 import org.axonframework.commandhandling.model.AggregateMember;
 import org.axonframework.eventhandling.EventHandler;
 import org.axonframework.spring.stereotype.Aggregate;
+
 import java.util.Map;
+
 import static org.axonframework.commandhandling.model.AggregateLifecycle.apply;
 
 /**
  * Created by Edison Xu on 2017/3/7.
  */
-@Getter
 @Aggregate
-@NoArgsConstructor
-@AllArgsConstructor
 public class OrderAggregate {
 
     @AggregateIdentifier
@@ -31,11 +26,38 @@ public class OrderAggregate {
     @AggregateMember
     private Map<String, OrderProduct> products;
 
-    public OrderAggregate(OrderId id, String username, Map<String, OrderProduct> products){
-        this.id=id;
-        this.username=username;
-        this.products=products;
+    public OrderAggregate(){}
+
+    public OrderAggregate(OrderId id, String username, Map<String, OrderProduct> products) {
+        apply(new OrderCreatedEvent(id, username, products));
     }
+
+    public OrderId getId() {
+        return id;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public Map<String, OrderProduct> getProducts() {
+        return products;
+    }
+
+    @EventHandler
+    public void on(OrderCreatedEvent event){
+        this.id = event.getOrderId();
+        this.username = event.getUsername();
+        this.products = event.getProducts();
+        computePrice();
+    }
+
+    private void computePrice() {
+        products.forEach((id, product) -> {
+            payment += product.getPrice() * product.getAmount();
+        });
+    }
+
     /**
      * Divided 100 here because of the transformation of accuracy
      *
@@ -55,3 +77,4 @@ public class OrderAggregate {
         payment = payment - product.getPrice() * product.getAmount();
     }
 }
+

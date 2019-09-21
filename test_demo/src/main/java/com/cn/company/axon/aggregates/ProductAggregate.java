@@ -1,20 +1,19 @@
 package com.cn.company.axon.aggregates;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import com.cn.company.axon.command.CreateProductCommand;
+import com.cn.company.axon.query.ProductCreatedEvent;
+import org.axonframework.commandhandling.CommandHandler;
 import org.axonframework.commandhandling.model.AggregateIdentifier;
+import org.axonframework.eventhandling.EventHandler;
 import org.axonframework.spring.stereotype.Aggregate;
 import org.slf4j.Logger;
+import static org.axonframework.commandhandling.model.AggregateLifecycle.apply;
 import static org.slf4j.LoggerFactory.getLogger;
 
 /**
  * Created by Edison Xu on 2017/3/7.
  */
-@Getter
 @Aggregate
-@NoArgsConstructor
-@AllArgsConstructor
 public class ProductAggregate {
 
     private static final Logger LOGGER = getLogger(ProductAggregate.class);
@@ -24,4 +23,33 @@ public class ProductAggregate {
     private String name;
     private int stock;
     private long price;
+
+    public ProductAggregate() {
+    }
+
+    @CommandHandler
+    public ProductAggregate(CreateProductCommand command) {
+        apply(new ProductCreatedEvent(command.getId(),command.getName(),command.getPrice(),command.getStock()));
+    }
+
+    @EventHandler
+    public void on(ProductCreatedEvent event){
+        this.id = event.getId();
+        this.name = event.getName();
+        this.price = event.getPrice();
+        this.stock = event.getStock();
+        LOGGER.debug("Product [{}] {} {}x{} is created.", id,name,price,stock);
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getStock() {
+        return stock;
+    }
+
+    public long getPrice() {
+        return price;
+    }
 }

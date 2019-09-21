@@ -18,7 +18,7 @@ public class PTService {
         return ptDao.statistics();
     }
 
-    public PT save(PT pt){
-        return ptDao.save(pt);
+    public void save(PT pt){
+        ptDao.save(pt);
     }
 }

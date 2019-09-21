@@ -5,17 +5,17 @@ import org.axonframework.commandhandling.model.Repository;
 import org.axonframework.eventsourcing.AggregateFactory;
 import org.axonframework.eventsourcing.EventSourcingRepository;
 import org.axonframework.eventsourcing.eventstore.EventStore;
+import org.axonframework.spring.config.EnableAxon;
 import org.axonframework.spring.eventsourcing.SpringPrototypeAggregateFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.Scope;
 
 /**
  * Created by Edison Xu on 2017/3/14.
  */
+@EnableAxon
 @Configuration
 public class BankAccountConfig {
 
@@ -36,8 +36,6 @@ public class BankAccountConfig {
     }
 
     @Bean
-    @Primary
-    @Qualifier
     public Repository<BankAccountAggregate> bankAccountAggregateRepository(){
         EventSourcingRepository<BankAccountAggregate> repository = new EventSourcingRepository<BankAccountAggregate>(
                 bankAccountAggregateAggregateFactory(),

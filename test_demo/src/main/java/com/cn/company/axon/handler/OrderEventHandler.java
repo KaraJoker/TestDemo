@@ -3,7 +3,6 @@ package com.cn.company.axon.handler;
 import com.cn.company.axon.aggregates.OrderAggregate;
 import com.cn.company.axon.aggregates.ProductAggregate;
 import com.cn.company.axon.command.CreateOrderCommand;
-import com.cn.company.axon.model.OrderId;
 import com.cn.company.axon.query.OrderCreatedEvent;
 import com.cn.company.domain.OrderProduct;
 import com.cn.company.plan.entity.OrderEntry;
@@ -19,7 +18,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import java.util.HashMap;
 import java.util.Map;
-import static org.axonframework.commandhandling.model.AggregateLifecycle.apply;
 import static org.slf4j.LoggerFactory.getLogger;
 
 /**
@@ -43,9 +41,20 @@ public class OrderEventHandler {
     @Autowired
     private EventBus eventBus;
 
-    @CommandHandler
-    public void handle(OrderId id, String username, Map<String, OrderProduct> products) {
-        apply(new OrderCreatedEvent(id, username, products));
+    @EventHandler
+    public void on(OrderCreatedEvent event){
+        Map<String, OrderProductEntry> map = new HashMap<>();
+        event.getProducts().forEach((id, product)->{
+            OrderProduct orderProduct=(OrderProduct)product;
+            map.put(id.toString(),
+                    new OrderProductEntry(
+                            orderProduct.getId(),
+                            orderProduct.getName(),
+                            orderProduct.getPrice(),
+                            orderProduct.getAmount()));
+        });
+        OrderEntry order = new OrderEntry(event.getOrderId().toString(), event.getUsername(), map);
+        repository.save(order);
     }
 
     @CommandHandler
@@ -61,20 +70,5 @@ public class OrderEventHandler {
                             number));
         });
         orderRepository.newInstance(() -> new OrderAggregate(command.getOrderId(), command.getUsername(), products));
-    }
-
-    @EventHandler
-    public void on(OrderCreatedEvent event){
-        Map<String, OrderProductEntry> map = new HashMap<>();
-        event.getProducts().forEach((id, product)->{
-            map.put(id,
-                    new OrderProductEntry(
-                            product.getId(),
-                            product.getName(),
-                            product.getPrice(),
-                            product.getAmount()));
-        });
-        OrderEntry order = new OrderEntry(event.getOrderId().toString(), event.getUsername(), map);
-        repository.save(order);
     }
 }

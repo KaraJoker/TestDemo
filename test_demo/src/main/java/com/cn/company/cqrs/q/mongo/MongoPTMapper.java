@@ -1,6 +1,5 @@
 package com.cn.company.cqrs.q.mongo;
 
-import cn.hutool.db.Page;
 import com.cn.company.cqrs.q.bean.PT;
 import com.cn.company.cqrs.q.dao.PTDao;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +31,7 @@ public class MongoPTMapper implements PTDao {
         return results.getMappedResults();
     }
 
-    public PT save(PT pt){
-        return secondaryMongoTemplate.save(pt);
+    public void save(PT pt){
+        secondaryMongoTemplate.save(pt);
     }
 }
