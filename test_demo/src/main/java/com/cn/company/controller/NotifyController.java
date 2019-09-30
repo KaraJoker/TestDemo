@@ -18,6 +18,15 @@ public class NotifyController {
     @Autowired
     private CommandGateway commandGateway;
 
+    /**
+     * @program: ${PROJECT_NAME}
+     * @Description: CQRS账户测试
+     * @Param: ${params}
+     * @return: ${return}
+     * @Author: Outcaster
+     * @date: ${YEAR}-${MONTH}-${DAY} ${HOUR}:${MINUTE}
+     */
+
     @RequestMapping(value = "/replace", method = RequestMethod.GET)
     public void replace(HttpServletRequest request) {
         AccountId id = new AccountId();

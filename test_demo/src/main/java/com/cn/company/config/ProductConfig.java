@@ -15,7 +15,7 @@ import org.springframework.context.annotation.Scope;
 /**
  * Created by Edison Xu on 2017/3/14.
  */
-@EnableAxon
+//@EnableAxon
 @Configuration
 public class ProductConfig {
 

@@ -11,13 +11,12 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>1.5.2.RELEASE</version>
+        <version>2.1.7.RELEASE</version>
     </parent>
 
     <modules>
         <module>test_demo</module>
         <module>test_eureka</module>
-        <module>test_lesson</module>
     </modules>
 
     <properties>

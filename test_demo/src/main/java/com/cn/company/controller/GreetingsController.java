@@ -15,6 +15,14 @@ public class GreetingsController {
     @Autowired
     GreetingsService greetingsService;
 
+    /**
+     * @program: ${PROJECT_NAME}
+     * @Description: Stream流API测试
+     * @Param: message
+     * @return: void
+     * @Author: Outcaster
+     * @date: ${YEAR}-${MONTH}-${DAY} ${HOUR}:${MINUTE}
+     */
     @GetMapping("/greetings")
     @ResponseStatus(HttpStatus.ACCEPTED)
     public void greetings(@RequestParam("message") String message) {

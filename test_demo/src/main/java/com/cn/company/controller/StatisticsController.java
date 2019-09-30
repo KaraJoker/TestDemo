@@ -18,11 +18,27 @@ public class StatisticsController {
     @Autowired
     PTService ptService;
 
+    /**
+     * @program: ${PROJECT_NAME}
+     * @Description: MongoDB主从数据库展示
+     * @Param: ${params}
+     * @return: ${return}
+     * @Author: Outcaster
+     * @date: ${YEAR}-${MONTH}-${DAY} ${HOUR}:${MINUTE}
+     */
     @RequestMapping("/demo")
     public List<Map> Statistics(){
         return ptService.statistics();
     }
 
+    /**
+     * @program: ${PROJECT_NAME}
+     * @Description: 从数据库保存
+     * @Param: ${params}
+     * @return: ${return}
+     * @Author: Outcaster
+     * @date: ${YEAR}-${MONTH}-${DAY} ${HOUR}:${MINUTE}
+     */
     @PostMapping("/save")
     public void save(@RequestBody PT pt){
         ptService.save(pt);

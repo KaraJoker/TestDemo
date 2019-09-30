@@ -22,6 +22,15 @@ public class ProductController {
     @Autowired
     private CommandGateway commandGateway;
 
+    /**
+     * @program: ${PROJECT_NAME}
+     * @Description: Axon产品ID查询
+     * @Param: ${params}
+     * @return: ${return}
+     * @Author: Outcaster
+     * @date: ${YEAR}-${MONTH}-${DAY} ${HOUR}:${MINUTE}
+     */
+
     @RequestMapping(value = "/{id}", method = RequestMethod.POST)
     public void create(@PathVariable(value = "id") String id,
                        @RequestParam(value = "name", required = true) String name,

@@ -19,8 +19,8 @@ spring:
     mongodb:
       url: localhost
       port: 27017
-#      username:
-#      password:
+      username: root
+      password: 123456
       dbname: axon
       events:
         collection:
@@ -40,6 +40,11 @@ spring:
     validation-query: SELECT 1
     initial-size: 2
     sql-script-encoding: UTF-8
+  jpa:
+    database: mysql
+    show-sql: true
+    hibernate:
+      ddl-auto: create-drop
   cloud:
     stream:
       kafka:

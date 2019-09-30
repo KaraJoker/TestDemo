@@ -28,7 +28,7 @@ public class BankAccountEntry {
     private static final Logger LOGGER = getLogger(BankAccountEntry.class);
 
     @Id
-    private AccountId accountId;
+    private String accountId;
     @Column
     private String accountName;
     @Column
