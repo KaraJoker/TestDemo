@@ -15,8 +15,8 @@
     </parent>
 
     <modules>
-        <module>test_demo</module>
         <module>test_eureka</module>
+        <module>test_gemo</module>
     </modules>
 
     <properties>
@@ -101,6 +101,11 @@
                 <groupId>com.alibaba</groupId>
                 <artifactId>fastjson</artifactId>
                 <version>1.2.24</version>
+            </dependency>
+            <dependency>
+                <groupId>com.lmax</groupId>
+                <artifactId>disruptor</artifactId>
+                <version>3.3.4</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
