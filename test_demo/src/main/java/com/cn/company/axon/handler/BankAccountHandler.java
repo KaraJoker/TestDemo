@@ -35,6 +35,7 @@ public class BankAccountHandler {
 
     @CommandHandler
     public void handle(WithdrawMoneyCommand command){
+        log.debug("Construct a new BankAccount");
         apply(new MoneyWithdrawnEvent(command.getAccountId(), command.getAmount()));
     }
 

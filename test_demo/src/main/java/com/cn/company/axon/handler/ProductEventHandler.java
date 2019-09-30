@@ -23,7 +23,6 @@ public class ProductEventHandler {
 
     @EventHandler
     public void on(ProductCreatedEvent event){
-        // update the data in the cache or db of the query side
         LOGGER.debug("repository data is updated");
         repository.save(new ProductEntry(event.getId(), event.getName(), event.getPrice(), event.getStock()));
     }

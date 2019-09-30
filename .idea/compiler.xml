@@ -8,7 +8,6 @@
         <outputRelativeToContentRoot value="true" />
         <module name="test_eureka" />
         <module name="test_demo" />
-        <module name="test_lesson" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

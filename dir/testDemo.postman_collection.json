@@ -1,0 +1,214 @@
+{
+	"info": {
+		"_postman_id": "ffa4ef26-dc58-4280-9e4f-46155a1031e3",
+		"name": "testDemo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Stream流API测试",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/greetings?message=暂时停止运行",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"greetings"
+					],
+					"query": [
+						{
+							"key": "message",
+							"value": "暂时停止运行"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CQRS账户测试",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/admin/replace",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"admin",
+						"replace"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "MongoDB主从数据库展示",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\":\"jaker\",\n\t\"products\":{\n\t\t\"id\":\"sadsda\",\n\t\t\"number\":15\n\t}\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/test/demo",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"test",
+						"demo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "从数据库保存",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"student_Id\":\"sdasda\",\n    \"student_name\":\"dsfdsfds\",\n    \"school_id\":\"sdadda\",\n    \"school_name\":\"sdaddfvds\",\n    \"grade_id\":\"sadsad\",\n    \"grade_name\":\"saxccdfsd\",\n    \"class_id\":\"sadcxcxz\",\n    \"class_name\":\"sadasd\",\n    \"batch\":\"sdsssf\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/test/save",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"test",
+						"save"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Axon订单保存",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\":\"Outcaster\",\n\t\"products\":[{\"id\":\"DTxsd83r\",\"number\":12}]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/order/picker",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"order",
+						"picker"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Axon产品ID查询",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "老姜",
+							"type": "text"
+						},
+						{
+							"key": "price",
+							"value": "54",
+							"type": "text"
+						},
+						{
+							"key": "stock",
+							"value": "100",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/product/DTxsd83r",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"product",
+						"DTxsd83r"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

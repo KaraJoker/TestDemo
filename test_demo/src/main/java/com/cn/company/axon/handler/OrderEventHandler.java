@@ -7,7 +7,9 @@ import com.cn.company.axon.query.OrderCreatedEvent;
 import com.cn.company.domain.OrderProduct;
 import com.cn.company.plan.entity.OrderEntry;
 import com.cn.company.plan.entity.OrderProductEntry;
+import com.cn.company.plan.entity.ProductEntry;
 import com.cn.company.plan.repository.OrderEntryRepository;
+import com.cn.company.plan.repository.ProductEntryRepository;
 import org.axonframework.commandhandling.CommandHandler;
 import org.axonframework.commandhandling.model.Aggregate;
 import org.axonframework.commandhandling.model.Repository;
@@ -18,6 +20,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
+
 import static org.slf4j.LoggerFactory.getLogger;
 
 /**
@@ -30,7 +34,10 @@ public class OrderEventHandler {
     private static final Logger LOGGER = getLogger(OrderEventHandler.class);
 
     @Autowired
-    private OrderEntryRepository repository;
+    private OrderEntryRepository orderEntryRepository;
+
+    @Autowired
+    private ProductEntryRepository productEntryRepository;
 
     @Autowired
     private Repository<OrderAggregate> orderRepository;
@@ -45,16 +52,15 @@ public class OrderEventHandler {
     public void on(OrderCreatedEvent event){
         Map<String, OrderProductEntry> map = new HashMap<>();
         event.getProducts().forEach((id, product)->{
-            OrderProduct orderProduct=(OrderProduct)product;
-            map.put(id.toString(),
+            map.put(id,
                     new OrderProductEntry(
-                            orderProduct.getId(),
-                            orderProduct.getName(),
-                            orderProduct.getPrice(),
-                            orderProduct.getAmount()));
+                            product.getId(),
+                            product.getName(),
+                            product.getPrice(),
+                            product.getAmount()));
         });
         OrderEntry order = new OrderEntry(event.getOrderId().toString(), event.getUsername(), map);
-        repository.save(order);
+        orderEntryRepository.save(order);
     }
 
     @CommandHandler
@@ -62,11 +68,11 @@ public class OrderEventHandler {
         Map<String, OrderProduct> products = new HashMap<>();
         command.getProducts().forEach((productId,number)->{
             LOGGER.debug("Loading product information with productId: {}",productId);
-            Aggregate<ProductAggregate> aggregate = productRepository.load(productId);
+            Optional<ProductEntry> aggregate = productEntryRepository.findById(productId);
             products.put(productId,
                     new OrderProduct(productId,
-                            aggregate.invoke(productAggregate -> productAggregate.getName()),
-                            aggregate.invoke(productAggregate -> productAggregate.getPrice()),
+                            aggregate.get().getName(),
+                            aggregate.get().getPrice(),
                             number));
         });
         orderRepository.newInstance(() -> new OrderAggregate(command.getOrderId(), command.getUsername(), products));

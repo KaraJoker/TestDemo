@@ -30,7 +30,9 @@ public class NotifyController {
     @RequestMapping(value = "/replace", method = RequestMethod.GET)
     public void replace(HttpServletRequest request) {
         AccountId id = new AccountId();
-        commandGateway.send(new CreateAccountCommand(id, "JiWei",500));
-        commandGateway.send(new WithdrawMoneyCommand(id,1500));
+        CreateAccountCommand createAccountCommand=new CreateAccountCommand(id, "JiWei",500);
+        commandGateway.send(createAccountCommand);
+        WithdrawMoneyCommand withdrawMoneyCommand=new WithdrawMoneyCommand(id,1500);
+        commandGateway.send(withdrawMoneyCommand);
     }
 }
