@@ -80,5 +80,11 @@
             <artifactId>jackson-datatype-jsr310</artifactId>
             <version>2.6.5</version>
         </dependency>
+        <dependency>
+            <groupId>TestDemo</groupId>
+            <artifactId>test_common</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
     </dependencies>
 </project>

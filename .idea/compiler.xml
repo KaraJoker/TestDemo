@@ -7,10 +7,12 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="test_eureka" />
+        <module name="test_common" />
         <module name="test_gemo" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="test_common" target="1.8" />
       <module name="test_eureka" target="1.8" />
       <module name="test_gemo" target="1.8" />
       <module name="test_lesson" target="1.8" />

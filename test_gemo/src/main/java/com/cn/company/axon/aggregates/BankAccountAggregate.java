@@ -20,6 +20,7 @@ public class BankAccountAggregate {
     private String accountName;
     private BigDecimal balance;
 
+    public BankAccountAggregate(){}
 
     public BankAccountAggregate(AccountId accountId, String accountName, BigDecimal balance) {
         this.accountId = accountId;

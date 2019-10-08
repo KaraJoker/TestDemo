@@ -1,5 +1,6 @@
 package com.cn.company.controller;
 
+import com.cn.company.cqrs.c.service.PtCmdService;
 import com.cn.company.cqrs.q.bean.PT;
 import com.cn.company.cqrs.q.service.PTService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,9 @@ public class StatisticsController {
 
     @Autowired
     PTService ptService;
+
+    @Autowired
+    PtCmdService ptCmdService;
 
     /**
      * @program: ${PROJECT_NAME}
@@ -39,8 +43,8 @@ public class StatisticsController {
      * @Author: Outcaster
      * @date: ${YEAR}-${MONTH}-${DAY} ${HOUR}:${MINUTE}
      */
-    @PostMapping("/save")
-    public void save(@RequestBody PT pt){
-        ptService.save(pt);
+    @PostMapping("/recycleWatch")
+    public void recycleWatch(@RequestBody PT pt){
+        ptCmdService.recycleWatch(pt);
     }
 }
