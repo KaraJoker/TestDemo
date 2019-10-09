@@ -8,6 +8,8 @@ import org.springframework.stereotype.Component;
 import com.highto.framework.concurrent.DeferredResult;
 import com.highto.framework.ddd.CommonCommand;
 
+import java.util.Map;
+
 @Component(value = "ptCmdService")
 public class DisruptorPtCmdService extends DisruptorCmdServiceBase implements PtCmdService {
 
@@ -23,6 +25,19 @@ public class DisruptorPtCmdService extends DisruptorCmdServiceBase implements Pt
 		});
 		try {
 			result.getResult();
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+	}
+
+	@Override
+	public Map<String, Object> getWatch() {
+		CommonCommand cmd = new CommonCommand(PtCmdServiceImpl.class.getName(), "getWatch");
+		DeferredResult<Map<String, Object>> result = publishEvent(disruptorFactory.getCoreCmdDisruptor(), cmd, () -> {
+			return ptCmdServiceImpl.getWatch();
+		});
+		try {
+			return  result.getResult();
 		} catch (Exception e) {
 			throw new RuntimeException(e);
 		}

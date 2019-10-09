@@ -4,10 +4,7 @@ import com.cn.company.cqrs.c.service.PtCmdService;
 import com.cn.company.cqrs.q.bean.PT;
 import com.cn.company.cqrs.q.service.PTService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Map;
@@ -37,7 +34,7 @@ public class StatisticsController {
 
     /**
      * @program: ${PROJECT_NAME}
-     * @Description: 从数据库保存
+     * @Description: 放入内存
      * @Param: ${params}
      * @return: ${return}
      * @Author: Outcaster
@@ -46,5 +43,18 @@ public class StatisticsController {
     @PostMapping("/recycleWatch")
     public void recycleWatch(@RequestBody PT pt){
         ptCmdService.recycleWatch(pt);
+    }
+
+    /**
+     * @program: ${PROJECT_NAME}
+     * @Description: 从内存取出
+     * @Param: ${params}
+     * @return: ${return}
+     * @Author: Outcaster
+     * @date: ${YEAR}-${MONTH}-${DAY} ${HOUR}:${MINUTE}
+     */
+    @GetMapping("/getWatch")
+    public Map<String, Object> getWatch(){
+        return ptCmdService.getWatch();
     }
 }

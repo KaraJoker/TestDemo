@@ -2,6 +2,7 @@ package com.cn.company.cqrs.q.bean;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
+import lombok.ToString;
 import lombok.experimental.Accessors;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -12,6 +13,7 @@ import java.util.Date;
 import java.util.List;
 
 @Data
+@ToString
 @Accessors(chain = true)
 @Document(collection = "pt")
 public class PT implements Serializable {

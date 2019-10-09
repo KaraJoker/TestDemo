@@ -15,6 +15,9 @@ spring:
     name: test_demo
   main:
     allow-bean-definition-overriding: true
+  redis:
+    host: localhost
+    port: 6379
   data:
     mongodb:
       url: localhost
