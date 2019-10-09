@@ -27,4 +27,17 @@ public class DisruptorPtCmdService extends DisruptorCmdServiceBase implements Pt
 			throw new RuntimeException(e);
 		}
 	}
+
+	@Override
+	public Object getWatch() {
+		CommonCommand cmd = new CommonCommand(PtCmdServiceImpl.class.getName(), "getWatch");
+		DeferredResult<Object> result = publishEvent(disruptorFactory.getCoreCmdDisruptor(), cmd, () -> {
+			return ptCmdServiceImpl.getWatch();
+		});
+		try {
+			return result.getResult();
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+	}
 }

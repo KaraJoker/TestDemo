@@ -11,4 +11,10 @@ public class PtCmdServiceImpl extends CmdServiceBase implements PtCmdService {
 		UsMemberMap usMemberMap = singletonEntityRepository.getEntity(UsMemberMap.class);
 		usMemberMap.recycleWatch(pt);
 	}
+
+	@Override
+	public Object getWatch() {
+		UsMemberMap usMemberMap = singletonEntityRepository.getEntity(UsMemberMap.class);
+		return usMemberMap.getWatch();
+	}
 }

@@ -8,4 +8,6 @@ import org.springframework.stereotype.Service;
 public interface PtCmdService {
 
 	void recycleWatch(PT pt);
+
+	Object getWatch();
 }
