@@ -68,11 +68,11 @@ public class OrderEventHandler {
         Map<String, OrderProduct> products = new HashMap<>();
         command.getProducts().forEach((productId,number)->{
             LOGGER.debug("Loading product information with productId: {}",productId);
-            Aggregate<ProductAggregate> aggregate = productRepository.load(productId);
+            Optional<ProductEntry> aggregate = productEntryRepository.findById(productId);
             products.put(productId,
                     new OrderProduct(productId,
-                            aggregate.invoke(productAggregate -> productAggregate.getName()),
-                            aggregate.invoke(productAggregate -> productAggregate.getPrice()),
+                            aggregate.get().getName(),
+                            aggregate.get().getPrice(),
                             number));
         });
         orderRepository.newInstance(() -> new OrderAggregate(command.getOrderId(), command.getUsername(), products));
