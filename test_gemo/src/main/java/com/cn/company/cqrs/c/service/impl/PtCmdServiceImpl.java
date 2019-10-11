@@ -3,7 +3,9 @@ package com.cn.company.cqrs.c.service.impl;
 import com.cn.company.cqrs.c.domain.UsMemberMap;
 import com.cn.company.cqrs.c.service.PtCmdService;
 import com.cn.company.cqrs.q.bean.PT;
+import org.springframework.stereotype.Component;
 
+@Component
 public class PtCmdServiceImpl extends CmdServiceBase implements PtCmdService {
 
 	@Override

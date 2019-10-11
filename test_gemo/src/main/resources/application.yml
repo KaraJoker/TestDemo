@@ -61,4 +61,10 @@ spring:
         greetings-out:
           destination: greetings
           contentType: application/json
+  redis:
+    host: localhost
+    port: 6379
+filepath:
+  snapshotFileBasePath: E:/data/app/testdemo/snapshot
+  jFileBasePath: E:/data/app/testdemo/journal
 

@@ -87,7 +87,6 @@
 			<version>1.2.24</version>
 		</dependency>
 
-
         <!--servlet api -->
         <dependency>
             <groupId>javax.servlet</groupId>
