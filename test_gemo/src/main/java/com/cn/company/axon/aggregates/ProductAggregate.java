@@ -27,20 +27,6 @@ public class ProductAggregate {
     public ProductAggregate() {
     }
 
-    @CommandHandler
-    public ProductAggregate(CreateProductCommand command) {
-        apply(new ProductCreatedEvent(command.getId(),command.getName(),command.getPrice(),command.getStock()));
-    }
-
-    @EventHandler
-    public void on(ProductCreatedEvent event){
-        this.id = event.getId();
-        this.name = event.getName();
-        this.price = event.getPrice();
-        this.stock = event.getStock();
-        LOGGER.debug("Product [{}] {} {}x{} is created.", id,name,price,stock);
-    }
-
     public String getName() {
         return name;
     }

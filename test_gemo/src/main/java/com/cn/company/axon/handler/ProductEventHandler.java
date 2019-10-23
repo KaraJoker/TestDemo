@@ -1,12 +1,16 @@
 package com.cn.company.axon.handler;
 
+import com.cn.company.axon.command.CreateProductCommand;
 import com.cn.company.axon.query.ProductCreatedEvent;
 import com.cn.company.plan.entity.ProductEntry;
 import com.cn.company.plan.repository.ProductEntryRepository;
+import org.axonframework.commandhandling.CommandHandler;
 import org.axonframework.eventhandling.EventHandler;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
+import static org.axonframework.commandhandling.model.AggregateLifecycle.apply;
 import static org.slf4j.LoggerFactory.getLogger;
 
 /**
@@ -20,6 +24,11 @@ public class ProductEventHandler {
 
     @Autowired
     ProductEntryRepository repository;
+
+    @CommandHandler
+    public void handle(CreateProductCommand command) {
+        apply(new ProductCreatedEvent(command.getId(),command.getName(),command.getPrice(),command.getStock()));
+    }
 
     @EventHandler
     public void on(ProductCreatedEvent event){

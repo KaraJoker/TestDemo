@@ -13,6 +13,14 @@ public class SnapshotController {
     @Autowired
     private CoreSnapshotService snapshotServicel;
 
+    /**
+     * @program: ${PROJECT_NAME}
+     * @Description: 生成快照
+     * @Param: ${params}
+     * @return: ${return}
+     * @Author: Outcaster
+     * @date: ${YEAR}-${MONTH}-${DAY} ${HOUR}:${MINUTE}
+     */
     @RequestMapping("/save")
     @ResponseBody
     public String saveSnapshot() {

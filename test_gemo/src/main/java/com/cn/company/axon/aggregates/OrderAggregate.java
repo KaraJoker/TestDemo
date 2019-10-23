@@ -57,24 +57,5 @@ public class OrderAggregate {
             payment += product.getPrice() * product.getAmount();
         });
     }
-
-    /**
-     * Divided 100 here because of the transformation of accuracy
-     *
-     * @return
-     */
-    public double getPayment() {
-        return payment/100;
-    }
-
-    public void addProduct(OrderProduct product){
-        this.products.put(product.getId(), product);
-        payment += product.getPrice() * product.getAmount();
-    }
-
-    public void removeProduct(String productId){
-        OrderProduct product = this.products.remove(productId);
-        payment = payment - product.getPrice() * product.getAmount();
-    }
 }
 

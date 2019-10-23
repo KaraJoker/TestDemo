@@ -3,6 +3,8 @@ package com.cn.company.plan.entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Cascade;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.persistence.*;
 import java.util.Map;
@@ -21,7 +23,8 @@ public class OrderEntry {
     private String username;
     @Column
     private double payment;
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+
+    @OneToMany(targetEntity = OrderProductEntry.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "order_id")
     @MapKey(name = "id")
     private Map<String, OrderProductEntry> products;

@@ -5,8 +5,6 @@ package com.cn.company.axon.command;
  */
 public class CreateProductCommand {
 
-    //@TargetAggregateIdentifier
-    // here @TargetAggregateIdentifier annotation is optional because it's a construct command
     private String id;
     private String name;
     private long price;

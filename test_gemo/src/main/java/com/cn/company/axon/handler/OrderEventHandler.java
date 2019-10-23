@@ -48,21 +48,6 @@ public class OrderEventHandler {
     @Autowired
     private EventBus eventBus;
 
-    @EventHandler
-    public void on(OrderCreatedEvent event){
-        Map<String, OrderProductEntry> map = new HashMap<>();
-        event.getProducts().forEach((id, product)->{
-            map.put(id,
-                    new OrderProductEntry(
-                            product.getId(),
-                            product.getName(),
-                            product.getPrice(),
-                            product.getAmount()));
-        });
-        OrderEntry order = new OrderEntry(event.getOrderId().toString(), event.getUsername(), map);
-        orderEntryRepository.save(order);
-    }
-
     @CommandHandler
     public void handle(CreateOrderCommand command) throws Exception {
         Map<String, OrderProduct> products = new HashMap<>();
@@ -76,5 +61,20 @@ public class OrderEventHandler {
                             number));
         });
         orderRepository.newInstance(() -> new OrderAggregate(command.getOrderId(), command.getUsername(), products));
+    }
+
+    @EventHandler
+    public void on(OrderCreatedEvent event){
+        Map<String, OrderProductEntry> map = new HashMap<>();
+        event.getProducts().forEach((id, product)->{
+            map.put(id,
+                    new OrderProductEntry(
+                            product.getId(),
+                            product.getName(),
+                            product.getPrice(),
+                            product.getAmount()));
+        });
+        OrderEntry order = new OrderEntry(event.getOrderId().toString(), event.getUsername(), map);
+        orderEntryRepository.save(order);
     }
 }

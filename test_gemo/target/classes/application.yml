@@ -4,12 +4,12 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://127.0.0.1:8761/eureka/
-axon:
-  eventhandling:
-    processors:
-      name:
-        mode: tracking
-        source: eventBus
+#axon:
+#  eventhandling:
+#    processors:
+#      name:
+#        mode: tracking
+#        source: eventBus
 spring:
   application:
     name: test_demo
@@ -40,11 +40,15 @@ spring:
     validation-query: SELECT 1
     initial-size: 2
     sql-script-encoding: UTF-8
+    initialization-mode: always
+    initialize: true
   jpa:
     database: mysql
     show-sql: true
     hibernate:
       ddl-auto: create-drop
+    properties:
+      hibernate.dialect: org.hibernate.dialect.MySQL57Dialect
   cloud:
     stream:
       kafka:
